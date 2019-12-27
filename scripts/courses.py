@@ -3,7 +3,7 @@ from pathlib import Path
 import yaml
 
 from lectures import Lectures
-from config import ROOT, CURRENT_COURSE_ROOT, CURRENT_COURSE_SYMLINK, CURRENT_COURSE_WATCH_FILE
+from config import ROOT, CURRENT_COURSE_ROOT, CURRENT_COURSE_SYMLINK # , CURRENT_COURSE_WATCH_FILE
 
 class Course():
     def __init__(self, path):
@@ -41,4 +41,5 @@ class Courses(list):
     def current(self, course):
         CURRENT_COURSE_SYMLINK.unlink()
         CURRENT_COURSE_SYMLINK.symlink_to(course.path)
-        CURRENT_COURSE_WATCH_FILE.write_text('{}\n'.format(course.info['short']))
+        # Take out watch file until I find a use for it
+        # CURRENT_COURSE_WATCH_FILE.write_text('{}\n'.format(course.info['short']))
