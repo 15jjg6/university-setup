@@ -44,10 +44,11 @@ class Lecture():
         self.course = course
 
     def edit(self):
-        subprocess.Popen([
-            "x-terminal-emulator",
-            "-e", "zsh", "-i", "-c",
-            f"\\vim --servername kulak --remote-silent {str(self.file_path)}"
+        subprocess.call([
+            "gnome-terminal",
+            "--", 
+            "vim", 
+            str(self.file_path)
         ])
 
     def __str__(self):
@@ -153,7 +154,8 @@ if __name__ == '__main__':
     command = args[1]
 
 
-    lectures = Lectures(Path.cwd())
+#    lectures = Lectures(Path.cwd())
+    lectures = Lectures(CURRENT_COURSE_ROOT)
 
     if command == 'view':
         lecture_range = args[2]

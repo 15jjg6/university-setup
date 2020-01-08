@@ -26,13 +26,5 @@ def rofi(prompt, options, rofi_args=[], fuzzy=True):
         key = -1
     elif returncode > 9:
         key = returncode - 9
-    
-    print(returncode)
-    print(stdout)
-    print(selected)
-    print(key)
-    print(index)
-
-
 
     return key, index, selected
