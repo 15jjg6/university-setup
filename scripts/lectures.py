@@ -7,7 +7,6 @@ import locale
 import re
 import subprocess
 
-
 from config import get_week, DATE_FORMAT, CURRENT_COURSE_ROOT
 
 # TODO: figure out what this locale stuff does
@@ -57,7 +56,7 @@ class Lecture():
 
 class Lectures(list):
     def __init__(self, course):
-        self.course = course
+        self.course = course 
         self.root = course.path
         self.master_file = self.root / 'master.tex'
         list.__init__(self, self.read_files())
@@ -121,6 +120,8 @@ class Lectures(list):
             new_lecture_number = 1
 
         new_lecture_path = self.root / number2filename(new_lecture_number)
+        
+        print(new_lecture_path)
 
         today = datetime.today()
         date = today.strftime(DATE_FORMAT)
@@ -153,9 +154,10 @@ if __name__ == '__main__':
     args = sys.argv
     command = args[1]
 
+   # lectures = Lectures(Path.cwd())
 
-#    lectures = Lectures(Path.cwd())
-    lectures = Lectures(CURRENT_COURSE_ROOT)
+    from courses import Course
+    lectures = Lectures(Course(CURRENT_COURSE_ROOT))
 
     if command == 'view':
         lecture_range = args[2]
