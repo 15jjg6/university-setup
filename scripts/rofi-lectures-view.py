@@ -9,6 +9,7 @@ options = ['Current lecture', 'Last two lectures', 'All lectures', 'Previous lec
 
 key, index, selected = rofi('Select view', options, [
     '-lines', 4,
+    '-theme', 'nord',
     '-auto-select'
 ])
 

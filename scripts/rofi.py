@@ -5,7 +5,7 @@ def rofi(prompt, options, rofi_args=[], fuzzy=True):
     args = ['rofi', '-sort', '-no-levenshtein-sort']
     if fuzzy:
         args += ['-matching', 'fuzzy']
-    args += ['-dmenu', '-p', prompt, '-format', 's', '-i']
+    args += ['-dmenu', '-p', prompt, '-format', 's', '-theme', 'nord', '-i']
     args += rofi_args
     args = [str(arg) for arg in args]
 
